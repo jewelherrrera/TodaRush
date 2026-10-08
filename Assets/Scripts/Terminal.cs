@@ -13,6 +13,7 @@ public class Terminal : MonoBehaviour
                 gameManager.gameWon = true;
                 print("YOU WIN!");
                 gameManager.winText.SetActive(true);
+                gameManager.restartButton.SetActive(true);
             }
         }
     }

@@ -15,12 +15,15 @@ public class GameManager : MonoBehaviour
 
     public GameObject winText;
     public GameObject gameOverText;
+
+    public GameObject restartButton;
     void Update()
     {
         if (health <= 0)
         {
             print("Game Over");
             gameOverText.SetActive(true);
+            restartButton.SetActive(true);
             enabled = false;
         }
 
