@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (gameManager.health <= 0 || gameManager.destinationCount >= 3)
+        if (gameManager.health <= 0 || gameManager.gameWon)
         {
             return;
         }

@@ -16,7 +16,7 @@ public class Destination : Interactable
                 gameManager.highScore = gameManager.score;
             }
 
-            Debug.Log("Destination Reached!");
+            print("Destination Reached!");
 
             gameObject.SetActive(false);
         }
