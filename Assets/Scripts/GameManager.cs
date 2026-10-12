@@ -1,3 +1,4 @@
+
 using UnityEngine;
 using TMPro;
 
@@ -15,8 +16,11 @@ public class GameManager : MonoBehaviour
 
     public GameObject winText;
     public GameObject gameOverText;
-
     public GameObject restartButton;
+
+    public PassengerPickup[] passengers = new PassengerPickup[3];
+    public int passengersOnboard = 0;
+
     void Update()
     {
         if (health <= 0)

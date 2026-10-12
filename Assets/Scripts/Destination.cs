@@ -1,24 +1,26 @@
+
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Destination : Interactable
 {
+    public UnityEvent onDestinationReached;
+    bool delivered;
+
+    public void DeliverPassenger()
+    {
+        GameManager gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+        gm.score += 100;
+        gm.destinationCount++;
+        print("Destination Reached!");
+    }
+
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !delivered)
         {
-            GameManager gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-
-            gameManager.score += 100;
-            gameManager.destinationCount++;
-
-            if (gameManager.score > gameManager.highScore)
-            {
-                gameManager.highScore = gameManager.score;
-            }
-
-            print("Destination Reached!");
-
-            gameObject.SetActive(false);
+            delivered = true;
+            onDestinationReached.Invoke();
         }
     }
 }
