@@ -8,7 +8,7 @@ public class Terminal : MonoBehaviour
         {
             GameManager gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
 
-            if (gameManager.allDestinationsDone)
+            if (gameManager.allDestinationsDone && !gameManager.timeExpired && gameManager.health > 0 && !gameManager.gameWon)
             {
                 gameManager.gameWon = true;
                 print("YOU WIN!");

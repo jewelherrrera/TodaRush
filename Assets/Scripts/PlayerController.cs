@@ -7,11 +7,10 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (gameManager.health <= 0 || gameManager.gameWon)
-        {
-            return;
-        }
-
+        if (gameManager.health <= 0 || gameManager.gameWon || gameManager.timeExpired)
+{
+    return;
+}
         float move = Input.GetAxis("Vertical");
         float turn = Input.GetAxis("Horizontal");
 
