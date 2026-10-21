@@ -702,6 +702,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   targetDestination: {fileID: 2046237197}
+  gameManager: {fileID: 1288947357}
 --- !u!136 &161236632
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1523,6 +1524,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   targetDestination: {fileID: 1178076435}
+  gameManager: {fileID: 1288947357}
 --- !u!1 &657578380
 GameObject:
   m_ObjectHideFlags: 0
@@ -2286,6 +2288,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   targetDestination: {fileID: 2138700709}
+  gameManager: {fileID: 1288947357}
 --- !u!136 &1113033568
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2996,6 +2999,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   passengersOnboard: 0
+  passengersDelivered: 0
 --- !u!4 &1288947358
 Transform:
   m_ObjectHideFlags: 0

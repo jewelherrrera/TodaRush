@@ -1,4 +1,3 @@
-
 using UnityEngine;
 using TMPro;
 
@@ -18,8 +17,9 @@ public class GameManager : MonoBehaviour
     public GameObject gameOverText;
     public GameObject restartButton;
 
-    public PassengerPickup[] passengers = new PassengerPickup[3];
+    public PassengerPickup[] passengers = new PassengerPickup[5];
     public int passengersOnboard = 0;
+    public int passengersDelivered = 0;
 
     void Update()
     {
@@ -35,5 +35,25 @@ public class GameManager : MonoBehaviour
         {
             allDestinationsDone = true;
         }
+    }
+
+    public bool DeliverPassenger(Destination destination)
+    {
+        foreach (PassengerPickup passenger in passengers)
+        {
+            if (passenger != null &&
+                passenger.targetDestination == destination)
+            {
+                passengersDelivered++;
+                passengersOnboard--;
+
+                passenger.targetDestination = null;
+                passenger.gameObject.SetActive(false);
+
+                return true;
+            }
+        }
+
+        return false;
     }
 }
