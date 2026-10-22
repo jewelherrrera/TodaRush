@@ -4,25 +4,21 @@ using UnityEngine.Events;
 public class Destination : Interactable
 {
     public UnityEvent onDestinationReached;
-    bool delivered;
 
     public void DeliverPassenger()
+{
+    if (gameManager != null && gameManager.DeliverPassenger(this))
     {
-        GameManager gm = GameObject.Find("GameManager").GetComponent<GameManager>();
-
-        if (gm.DeliverPassenger(this))
-        {
-            delivered = true;
-            gm.score += 100;
-            gm.destinationCount++;
-        }
+        gameManager.score += 100;
+        gameManager.destinationCount++;
     }
-
+}
     private void OnTriggerEnter(Collider other)
+{
+    if (other.CompareTag("Player"))
     {
-        if (other.CompareTag("Player") && !delivered)
-        {
-            onDestinationReached.Invoke();
-        }
+        onDestinationReached.Invoke();
     }
+}
+
 }

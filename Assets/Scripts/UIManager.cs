@@ -8,7 +8,7 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI highScoreText;
     public TextMeshProUGUI timerText;
     public GameManager gameManager;
-
+    public TripTimer tripTimer;
     void Update()
     {
         healthText.text = "Health: " + gameManager.health;
@@ -16,20 +16,19 @@ public class UIManager : MonoBehaviour
         highScoreText.text = "High Score: " + gameManager.highScore;
 
 
-    if (gameManager != null && timerText != null)
+    if (gameManager != null && tripTimer != null && timerText != null)
 {
     if (gameManager.timeExpired)
     {
         timerText.text = "TIME'S UP!";
     }
-    else if (!gameManager.IsTimerStarted())
+    else if (!tripTimer.IsTimerStarted())
     {
-        timerText.text = "Waiting for passengers (" + gameManager.passengersOnboard + "/" + gameManager.requiredPassengerCount + ")";
+        timerText.text = "Waiting for passengers (" + gameManager.passengersOnboard + "/" + tripTimer.requiredPassengerCount + ")";
     }
     else
     {
-        float remainingTime = Mathf.Max(
-            0f, gameManager.GetTimeRemaining());
+        float remainingTime = Mathf.Max(0f, tripTimer.GetTimeRemaining());
 
         int minutes = Mathf.FloorToInt(remainingTime / 60f);
         int seconds = Mathf.FloorToInt(remainingTime % 60f);
@@ -38,7 +37,5 @@ public class UIManager : MonoBehaviour
             + seconds.ToString("00");
     }
 }
-
-
     }
 }

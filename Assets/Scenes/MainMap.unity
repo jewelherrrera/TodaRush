@@ -699,6 +699,7 @@ Transform:
   m_Children:
   - {fileID: 270598006}
   - {fileID: 1323994046}
+  - {fileID: 911319425}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &103546142
@@ -720,8 +721,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.2634711, y: 2.3504581, z: 2.8161273}
-  m_Center: {x: 0.52030015, y: 1.069772, z: -0.9080634}
+  m_Size: {x: 1.794538, y: 2.103482, z: 2.2965326}
+  m_Center: {x: 0.5736594, y: 0.94628394, z: -0.122905254}
 --- !u!54 &103546143
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -888,6 +889,10 @@ MonoBehaviour:
         m_CallState: 2
   targetDestination: {fileID: 2046237197}
   gameManager: {fileID: 1288947357}
+  hasBoarded: 0
+  boardingPoint: {fileID: 911319425}
+  boardingSpeed: 3
+  pickupDistance: 4
 --- !u!136 &161236632
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -977,7 +982,7 @@ Transform:
   m_GameObject: {fileID: 161236630}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2, y: 1, z: -12}
+  m_LocalPosition: {x: 2.5, y: 1, z: 2.5}
   m_LocalScale: {x: 0.6, y: 1, z: 0.6}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2051,7 +2056,7 @@ Transform:
   m_GameObject: {fileID: 606152592}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2, y: 1, z: -15}
+  m_LocalPosition: {x: 2.5, y: 1, z: -0.5}
   m_LocalScale: {x: 0.6, y: 1, z: 0.6}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2087,6 +2092,10 @@ MonoBehaviour:
         m_CallState: 2
   targetDestination: {fileID: 1178076435}
   gameManager: {fileID: 1288947357}
+  hasBoarded: 0
+  boardingPoint: {fileID: 911319425}
+  boardingSpeed: 3
+  pickupDistance: 4
 --- !u!1 &657578380
 GameObject:
   m_ObjectHideFlags: 0
@@ -2295,6 +2304,7 @@ MonoBehaviour:
   highScoreText: {fileID: 577264593}
   timerText: {fileID: 1735447160}
   gameManager: {fileID: 1288947357}
+  tripTimer: {fileID: 1288947360}
 --- !u!114 &659542254
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2772,6 +2782,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 846185145}
   m_CullTransparentMesh: 1
+--- !u!1 &911319424
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 911319425}
+  m_Layer: 0
+  m_Name: PassengerBoardingPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &911319425
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 911319424}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.42, y: 0.81, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 103546141}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &978090411
 GameObject:
   m_ObjectHideFlags: 0
@@ -3228,6 +3269,10 @@ MonoBehaviour:
         m_CallState: 2
   targetDestination: {fileID: 2138700709}
   gameManager: {fileID: 1288947357}
+  hasBoarded: 0
+  boardingPoint: {fileID: 911319425}
+  boardingSpeed: 3
+  pickupDistance: 4
 --- !u!136 &1113033568
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -3317,7 +3362,7 @@ Transform:
   m_GameObject: {fileID: 1113033566}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2, y: 1, z: -9}
+  m_LocalPosition: {x: 2.5, y: 1, z: 5.5}
   m_LocalScale: {x: 0.6, y: 1, z: 0.6}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3905,6 +3950,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1288947358}
   - component: {fileID: 1288947357}
+  - component: {fileID: 1288947359}
+  - component: {fileID: 1288947360}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -3927,7 +3974,6 @@ MonoBehaviour:
   health: 100
   score: 0
   highScore: 0
-  currentLevel: 1
   destinationCount: 0
   damage: 10
   allDestinationsDone: 0
@@ -3941,9 +3987,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   passengersOnboard: 0
-  passengersDelivered: 0
-  requiredPassengerCount: 3
-  tripTimeLimit: 10
 --- !u!4 &1288947358
 Transform:
   m_ObjectHideFlags: 0
@@ -3959,6 +4002,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1288947359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1288947356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bb981e7a70f34e4293db2aa957b2582, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Queue
+  terminalPassengers:
+  - {fileID: 606152597}
+  - {fileID: 161236631}
+  - {fileID: 1113033567}
+  nextPassengerArrivalDelay: 2
+--- !u!114 &1288947360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1288947356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dfa6ffb7e7806a47bb3cb8c0f3f8e26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TripTimer
+  requiredPassengerCount: 3
+  tripTimeLimit: 10
 --- !u!4 &1289885102 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -1166455544486928893, guid: 087326e63adab5d41a73fe598e6de50e, type: 3}
@@ -4951,7 +5025,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: -40}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 300, y: 50}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!1 &1765909315
 GameObject:

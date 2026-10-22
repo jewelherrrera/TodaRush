@@ -10,6 +10,6 @@ public class MenuManager : MonoBehaviour
 
     public void RestartGame()
     {
-        SceneManager.LoadScene("MainMap");
+        PlayGame();
     }
 }
