@@ -1,5 +1,4 @@
 using UnityEngine;
-using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -25,17 +24,23 @@ public class GameManager : MonoBehaviour
     public float tripTimeLimit = 180f;
     private float timeRemaining;
     private bool timerStarted = false;
-    public TMP_Text timerText;
+
+    public bool IsTimerStarted()
+{
+    return timerStarted;
+}
+
+    public float GetTimeRemaining()
+{
+    return timeRemaining;
+}
+
 
     void Start()
 {
-    timeRemaining = tripTimeLimit;
-
-    if (timerText != null)
-    {
-        timerText.text = "Waiting for passengers (0/" + requiredPassengerCount + ")";
-    }
+        timeRemaining = tripTimeLimit;
 }
+
 
     void Update()
     {
@@ -48,45 +53,25 @@ public class GameManager : MonoBehaviour
         }
 
 
-
-    if (!timerStarted && passengersOnboard >= requiredPassengerCount)
+        if (!timerStarted && passengersOnboard >= requiredPassengerCount)
 {
-    timerStarted = true;
+            timerStarted = true;
 }
 
-    if (!timerStarted)
+        if (timerStarted && !gameWon && !timeExpired && health > 0)
 {
-    if (timerText != null)
+            timeRemaining -= Time.deltaTime;
+
+        if (timeRemaining <= 0f)
     {
-        timerText.text = "Waiting for passengers (" + passengersOnboard + "/" + requiredPassengerCount + ")";
-    }
-}
-    else if (!gameWon && health > 0)
-{
-    timeRemaining -= Time.deltaTime;
+            timeRemaining = 0f;
+            timeExpired = true;
 
-    if (timeRemaining <= 0f)
-    {
-        timeRemaining = 0f;
-        timeExpired = true;
+            gameOverText.SetActive(true);
+            restartButton.SetActive(true);
 
-        if (timerText != null)
-        {
-            timerText.text = "TIME'S UP!";
-        }
-
-        gameOverText.SetActive(true);
-        restartButton.SetActive(true);
         enabled = false;
         return;
-    }
-
-    int minutes = Mathf.FloorToInt(timeRemaining / 60f);
-    int seconds = Mathf.FloorToInt(timeRemaining % 60f);
-
-    if (timerText != null)
-    {
-        timerText.text = minutes.ToString("00") + ":" + seconds.ToString("00");
     }
 }
 
