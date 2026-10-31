@@ -1,0 +1,2 @@
+new houses=200 withBoxCollider=200 roadColliderHits=12 groundOutliers(>0.5m)=0 worstBoundsMinVsGround=-0.365
+new trees=200 total trees=442 total Houses children=408

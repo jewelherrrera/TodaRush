@@ -1,0 +1,12 @@
+recovery saved=True path=Assets/Scenes/Recovery/MainMap_Before_Dense_Barangay_20261030_203922.unity
+Houses children=208 House_0x roots=12
+Props children=9
+  Trees kids=242
+  FoodCart kids=72
+  FoodCart_REDESIGN_CART_01 kids=72
+  FoodCart_REDESIGN_CART_02 kids=72
+  FoodCart_REDESIGN_CART_03 kids=72
+  FoodCart_REDESIGN_CART_04 kids=72
+  FoodCart_REDESIGN_CART_05 kids=72
+  NipaHut kids=154
+  NipaHut_REDESIGN_NIPAHUT_02 kids=154

@@ -1,0 +1,8 @@
+# Single palette material for merged eight-cable span
+newmtl CablePalette
+Ka 1.0 1.0 1.0
+Kd 1.0 1.0 1.0
+Ks 0.04 0.04 0.04
+Ns 8
+d 1.0
+map_Kd PH_WireSpan_8Cables_palette.png

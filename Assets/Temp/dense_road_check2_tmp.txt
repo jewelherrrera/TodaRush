@@ -1,0 +1,8 @@
+Dense_House_02_003 overlaps Road_Nbr_V2_Curved
+Dense_House_02_004 overlaps Road_Nbr_V2_Curved
+Dense_House_01_005 overlaps Road_Nbr_V2_Curved
+Dense_House_02_044 overlaps Road_Nbr_V1
+Dense_House_01_052 overlaps Road_Nbr_V2_Curved
+Dense_House_02_056 overlaps Road_Nbr_V2_Curved
+Dense_House_03_057 overlaps Road_Nbr_V1
+checked=200 true road overlaps=7

@@ -1,0 +1,4 @@
+denseHouses=193 totalHouseChildren=401
+denseTrees=196 totalTreeChildren=438
+sampleTree=Tree_Bonsai_02_REDESIGN_TREE_162 prefabLinked=True src=Tree_Bonsai_02_REDESIGN_TREE_162 (UnityEngine.GameObject)
+prefabExists=True

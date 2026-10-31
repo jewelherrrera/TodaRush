@@ -1,0 +1,8 @@
+removing Dense_House_02_003
+removing Dense_House_02_004
+removing Dense_House_01_005
+removing Dense_House_02_044
+removing Dense_House_01_052
+removing Dense_House_02_056
+removing Dense_House_03_057
+removed houses=7 houses now=401 tree bounding-box road hits=17

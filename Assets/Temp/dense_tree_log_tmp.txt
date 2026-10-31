@@ -1,0 +1,2 @@
+obstacles=53876 treeTemplates=242
+tree candidates accepted=200 attempts=820

@@ -1,0 +1,3 @@
+obstacles=23049 gridCells=1745
+road strips for frontage=73
+candidate houses accepted=200
