@@ -3,11 +3,8 @@ using System.Collections;
 
 public class Queue : MonoBehaviour
 {
-
-
     public PassengerPickup[] terminalPassengers;
     public float nextPassengerArrivalDelay = 2f;
-
     private int nextTerminalPassengerIndex = 0;
 
 void Start()

@@ -12,6 +12,10 @@ public class PassengerPickup : MonoBehaviour
     public Transform boardingPoint;
     public float boardingSpeed = 3f;
     private bool isApproaching = false;
+    public bool IsApproaching
+    {
+    get { return isApproaching; }
+    }
     public float pickupDistance = 6f;
     private Transform playerTransform;
 
@@ -57,7 +61,6 @@ public class PassengerPickup : MonoBehaviour
         isApproaching = false;
         hasBoarded = true;
         gameManager.passengersOnboard++;
-        gameManager.GetComponent<Queue>().ShowNextTerminalPassenger();
         Passenger.Invoke();
 
     }

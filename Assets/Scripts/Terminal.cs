@@ -1,3 +1,4 @@
+
 using UnityEngine;
 
 public class Terminal : Interactable
@@ -6,12 +7,13 @@ public class Terminal : Interactable
     {
         if (other.CompareTag("Player"))
         {
-            if (gameManager.allDestinationsDone && !gameManager.timeExpired && gameManager.health > 0 && !gameManager.gameWon)
+            if (gameManager.CompleteLap())
             {
-                gameManager.gameWon = true;
-                gameManager.winText.SetActive(true);
-                gameManager.restartButton.SetActive(true);
+                if (!gameManager.gameWon)
+                {
+                    gameManager.GetComponent<Queue>().ShowNextTerminalPassenger();
+                }
             }
         }
     }
-}   
+}
